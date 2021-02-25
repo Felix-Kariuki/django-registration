@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <title>Complete Validation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link href="{% static 'style.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h2>Registration Form</h2>
+            </div>
+            <form action="#" method="POST" class="form" id="form">
+                {% csrf_token %}
+                <div class="form-control">
+                    <label for="#">Name</label>
+                    <input type="text" name="Name" id="username" required placeholder="Enter your Name">
+                    <img src="{% static 'check.png' %}" alt="" class="check">
+                    <img src="{% static 'exclamation.png' %}" alt="" class="exclamation">
+                    <small>Error Message</small>
+                </div>
+                <div class="form-control">
+                    <label for="#">Email</label>
+                    <input type="email" name="Email" id="email" required placeholder="Enter your Email">
+                    <img src="{% static 'check.png' %}" alt="" class="check">
+                    <img src="{% static 'exclamation.png' %}" alt="" class="exclamation">
+                    <small>Error Message</small>
+                </div>
+                <div class="form-control">
+                    <label for="#">Phone Number</label>
+                    <input type="tel" name="Phone" id="phone" required placeholder="Phone Number">
+                    <img src="{% static 'check.png' %}" alt="" class="check">
+                    <img src="{% static 'exclamation.png' %}" alt="" class="exclamation">
+                    <small>Error Message</small>
+                </div>
+                <div class="form-control">
+                    <label for="#">Password</label>
+                    <input type="password" name="Password" required id="password" placeholder="Enter your password">
+                    <img src="{% static 'check.png' %}" alt="" class="check">
+                    <img src="{% static 'exclamation.png' %}" alt="" class="exclamation">
+                    <small>Error Message</small>
+                </div>
+                <div class="form-control">
+                    <label for="#">Confirm Password</label>
+                    <input type="password" name="" id="password2" placeholder="Confirm your Password">
+                    <img src="{% static 'check.png' %}" alt="" class="check">
+                    <img src="{% static 'exclamation.png' %}" alt="" class="exclamation">
+                    <small>Error Message</small>
+                </div>
+                <!--<button type="submit" class="btn">Submit</button>-->
+                <input type = "submit" value="Submit" class="btn" name="">
+                {% if messages %}
+                {% for msg in messages %}
+                <b>{{msg}}</b>
+                {% endfor %}
+                {% endif %}
+            </form>
+        </div>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+        
+        <!--<script src="{% static 'script.js' %}"> </script>-->
+    </body>
+</html>
